@@ -1,0 +1,33 @@
+language: php
+php: 5.4
+
+before_install:
+  - wget http://www.apache.org/dist/ant/binaries/apache-ant-1.8.3-bin.tar.gz -O - | tar -xz
+  - wget http://framework.zend.com/releases/ZendFramework-1.11.11/ZendFramework-1.11.11-minimal.tar.gz -O - | tar -xz
+  - export ANT_HOME=$PWD/apache-ant-1.8.3
+  - export ZF_HOME=$PWD/ZendFramework-1.11.11-minimal
+
+install:
+  - export PATH=$ANT_HOME/bin:$ZF_HOME/bin:$PATH
+
+before_script:
+  - phpunit --version
+  - ant -version
+  - zf.sh show version
+  - zf.sh create project .
+  - zf.sh enable layout
+  - ln -s $ZF_HOME/library/Zend library/Zend
+  - wget --no-check-certificate https://github.com/muiku/h5bp-zendframework/tarball/zfint -O - | tar -xvz --strip 1
+
+  # Change layout scripts folder to published ones
+  - sed -ie 's/layouts\/scripts/layouts\/scripts\/publish/g' application/configs/application.ini
+
+  # Remove line 23 from IndexControllerTest as we really do not need that
+  - sed -ie '23d' tests/application/controllers/IndexControllerTest.php
+
+script:
+  - ant -buildfile public/build/build.xml
+  - phpunit --configuration tests/phpunit.xml
+
+notifications:
+  email: false

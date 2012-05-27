@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="Project Build" default="build" basedir="../">
+	
+	<!-- Use this file to define any custom build targets (for example, automatically deploying via FTP). -->
+
+	<var name="dir.zf.layouts" value="../application/layouts/"/>
+
+	<target name="-pre-zfint">
+		<echo message="Retreaving Zend Framework layouts..."/>
+		<copy todir="${dir.source}/layouts/" overwrite="${needhtmlrefresh}">
+			<fileset dir="${dir.zf.layouts}" excludes="**/publish/"/>
+		</copy>
+	</target>
+
+	<target name="-post-zfint">
+		<echo message="Copying the builded Zend Framework layouts under application..."/>
+		<copy todir="${dir.zf.layouts}/scripts/publish/">
+			<fileset dir="${dir.publish}/layouts/scripts/"/>
+		</copy>
+		<delete dir="${dir.source}/layouts/"/>
+		<delete dir="${dir.publish}/layouts/"/>
+	</target>
+
+</project>
