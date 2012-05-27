@@ -1,0 +1,6 @@
+#photobrowser-app.loading
+{
+    background-image: url('/img/spinner.gif');
+    background-repeat: no-repeat;
+    height: 20px;
+}
