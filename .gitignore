@@ -1,1 +1,3 @@
 *.swp
+public/publish/*
+public/intermediate/*
