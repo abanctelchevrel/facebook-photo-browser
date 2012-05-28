@@ -31,8 +31,6 @@ jQuery(function($){
         },
         find: function(model, options) {
             return FB.api(this.url(), function(response){
-                log(response)
-                log(options)
                 if (!response || response.error) {
                     options.error('FB api error : ' + response.error);
                 } else {
@@ -132,8 +130,6 @@ jQuery(function($){
         },
 
         renderThumbnail: function() {
-            log('renderThumbnail')
-            log(this.model.coverPhoto.get('picture'))
             $(this.el).find('.album-thumbnail').attr("src", this.model.coverPhoto.get('picture'));
             return this;
         },
