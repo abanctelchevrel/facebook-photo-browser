@@ -23,7 +23,27 @@ jQuery(function($){
         }
     });
     window.Photos = Backbone.Collection.extend({
-        model: Photo
+        model: Photo,
+        url: function(){
+            return '/' + this.albumId + '/photos';
+        },
+        initialize: function(model, options){
+            this.albumId = options.albumId;
+        },
+        sync: function(method, model, options){
+            switch (method) {
+                case "read":    resp = this.findAll(model, options); break;
+            }
+        },
+        findAll: function(model, options) {
+            return FB.api(this.url(), function(response){
+                if (!response || response.error) {
+                    options.error('FB api error : ' + response.error);
+                } else {
+                    options.success(response.data);
+                }
+            });
+        }
     });
 
     window.Album = Backbone.Model.extend({
@@ -43,6 +63,7 @@ jQuery(function($){
         url: '/album',
         initialize: function(obj){
             this.set(obj);
+            this.photos = new Photos([], {albumId: this.get("id")});
         }
     });
 
@@ -53,7 +74,6 @@ jQuery(function($){
             switch (method) {
                 case "read":    resp = this.findAll(model, options); break;
             }
-            log([method, model, options]);
         },
         findAll: function(model, options) {
             return FB.api(this.url, function(response){
@@ -65,9 +85,6 @@ jQuery(function($){
             });
         }
     });
-    // window.Albums.prototype.sync = function(method, model, options){
-    //     log([method, model, options]);
-    // };
 
     window.albums = new Albums;
 
@@ -80,13 +97,11 @@ jQuery(function($){
         },
         initialize: function() {
             _.bindAll(this, 'render', 'open', 'addAll', 'addOne');
-            this.photos = new Photos;
+            this.model.photos.bind('reset', this.addAll);
         },
 
         open: function(data){
-            this.photos.reset(window.photosFromFacebook.data);
-            log(this.photos)
-            this.addAll();
+            this.model.photos.fetch();
         },
 
         render: function() {
@@ -95,7 +110,7 @@ jQuery(function($){
         },
 
         addAll: function(){
-            this.photos.each(this.addOne);
+            this.model.photos.each(this.addOne);
         },
         
         addOne: function(photo){
@@ -134,6 +149,7 @@ jQuery(function($){
             return this;
         },
         addAll: function(){
+            $("#album-list").empty();
             albums.each(this.addOne);
         },
         addOne: function(album){
