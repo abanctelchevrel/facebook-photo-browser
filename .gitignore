@@ -1,4 +1,4 @@
-*.swp
 public/publish/*
 public/intermediate/*
 application/layouts/scripts/publish/layout.phtml
+*.swp
