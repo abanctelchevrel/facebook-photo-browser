@@ -111,6 +111,7 @@ jQuery(function($){
         template: _.template($("#album-template").html()),
 
         tagName:  "li",
+        className:  "thumbnail",
         events: {
             "click" : "open"
         },
@@ -130,7 +131,7 @@ jQuery(function($){
         },
 
         renderThumbnail: function() {
-            $(this.el).find('.album-thumbnail').attr("src", this.model.coverPhoto.get('picture'));
+            $(this.el).css("background-image", "url(" + this.model.coverPhoto.get('picture') + ")");
             return this;
         },
 
@@ -148,12 +149,15 @@ jQuery(function($){
         template: _.template($("#photo-template").html()),
 
         tagName:  "li",
+        className:  "thumbnail",
         initialize: function() {
             _.bindAll(this, 'render');
         },
 
         render: function() {
             $(this.el).html(this.template(this.model.toJSON()));
+            $(this.el).css("background-image", "url(" + this.model.get('picture') + ")");
+
             return this;
         }
       });

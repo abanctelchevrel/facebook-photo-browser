@@ -12,7 +12,26 @@ body {
 
 #album-list
 {
-    width: 220px;
     text-align: right;
     list-style-type: none;
+}
+
+#album-list .thumbnail, 
+#photo-list .thumbnail 
+{
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-image: url('http://placehold.it/130x130');
+    border: 1px solid #DEDEDE;
+    float: left;
+    margin: 3px;
+    text-align: center;
+    height: 130px;
+    width: 130px;
+}
+
+#album-list .thumbnail:hover, 
+#photo-list .thumbnail:hover 
+{
+    border: 1px solid #696969;
 }
