@@ -1,5 +1,31 @@
 
 jQuery(function($){
+    window.Photo = Backbone.Model.extend({
+        defaults: {
+            id: undefined,
+            from: undefined,
+            picture: undefined,
+            source: undefined,
+            height: undefined,
+            width: undefined,
+            images: undefined,
+            link: undefined,
+            icon: undefined,
+            created_time: undefined,
+            position: undefined,
+            updated_time: undefined,
+            comments: undefined,
+            likes: undefined 
+        },
+
+        initialize: function(obj){
+            this.set(obj);
+        }
+    });
+    window.Photos = Backbone.Collection.extend({
+        model: Photo
+    });
+
     window.Album = Backbone.Model.extend({
         defaults: {
             id: undefined,
@@ -29,16 +55,47 @@ jQuery(function($){
         template: _.template($("#album-template").html()),
 
         tagName:  "li",
+        events: {
+            "click" : "open"
+        },
+        initialize: function() {
+            _.bindAll(this, 'render', 'open', 'addAll', 'addOne');
+            this.photos = new Photos;
+        },
 
+        open: function(data){
+            this.photos.reset(window.photosFromFacebook.data);
+            log(this.photos)
+            this.addAll();
+        },
+
+        render: function() {
+            $(this.el).html(this.template(this.model.toJSON()));
+            return this;
+        },
+
+        addAll: function(){
+            this.photos.each(this.addOne);
+        },
+        
+        addOne: function(photo){
+            var view = new PhotoView({model: photo});
+            $("#photo-list").append(view.render().el);
+        }
+      });
+
+    window.PhotoView = Backbone.View.extend({
+        template: _.template($("#photo-template").html()),
+
+        tagName:  "li",
         initialize: function() {
             _.bindAll(this, 'render');
         },
 
         render: function() {
             $(this.el).html(this.template(this.model.toJSON()));
-            // $(this.el).text("Album");
             return this;
-        }
+        },
       });
 
     window.AppView = Backbone.View.extend({
@@ -52,7 +109,8 @@ jQuery(function($){
             this.render();
         },
         render: function() {
-            $(this.el).html("Facebook Photo Browser");
+            $(this.el).removeClass("loading")
+            // $(this.el).html("Facebook Photo Browser");
             return this;
         },
         addAll: function(){

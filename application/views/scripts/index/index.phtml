@@ -4,6 +4,12 @@
     <p class="album-name"><%= name %></p>
 </script>
 
-<div id="photobrowser-app" class="loading"></div>
+<script type="text/template" id="photo-template">
+    <img src="<%= source %>">
+    <p class="photo-id"><%= id %></p>
+</script>
+<div id="photobrowser-app" class="loading">
 
-<ul id="album-list"></ul>
+    <ul id="album-list"></ul>
+    <ul id="photo-list"></ul>
+</div>

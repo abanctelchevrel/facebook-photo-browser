@@ -214,3 +214,155 @@ var albumsFromFacebook =
         "next": "https://graph.facebook.com/me/albums?access_token=AAAD4Yvp6FDEBAE17rCsSStKk9foUjOnemofANvHFSbD1tDqtuZAZCbv7giWMROAiEb0b1v38cNh2dYjU9aGEehTxIfxPdB6fd8oeqdMwZDZD&callback=FB.ApiServer._callbacks.fe72e6638f72fa&pretty=0&sdk=joey&limit=25&until=1184112235&__paging_token=4301029858"
     }
 };
+
+
+var photosFromFacebook = {
+    "data": [{
+        "id": "475051349858",
+        "from": {
+            "name": "Antoine Banctel-Chevrel",
+            "id": "738514858"
+        },
+        "picture": "http://photos-d.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_s.jpg",
+        "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_n.jpg",
+        "height": 89,
+        "width": 474,
+        "images": [{
+            "height": 384,
+            "width": 2048,
+            "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/s2048x2048/47002_475051349858_6317335_n.jpg"
+        }, {
+            "height": 89,
+            "width": 474,
+            "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_n.jpg"
+        }, {
+            "height": 89,
+            "width": 474,
+            "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_n.jpg"
+        }, {
+            "height": 90,
+            "width": 480,
+            "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/s480x480/47002_475051349858_6317335_n.jpg"
+        }, {
+            "height": 60,
+            "width": 320,
+            "source": "http://a4.sphotos.ak.fbcdn.net/hphotos-ak-snc7/s320x320/47002_475051349858_6317335_n.jpg"
+        }, {
+            "height": 33,
+            "width": 180,
+            "source": "http://photos-d.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_a.jpg"
+        }, {
+            "height": 24,
+            "width": 130,
+            "source": "http://photos-d.ak.fbcdn.net/hphotos-ak-snc7/47002_475051349858_6317335_s.jpg"
+        }, {
+            "height": 24,
+            "width": 130,
+            "source": "http://photos-d.ak.fbcdn.net/hphotos-ak-snc7/s75x225/47002_475051349858_6317335_s.jpg"
+        }],
+        "link": "http://www.facebook.com/photo.php?fbid=475051349858&set=a.154843904858.142231.738514858&type=1",
+        "icon": "https://s-static.ak.facebook.com/rsrc.php/v2/yz/r/StEh3RhPvjk.gif",
+        "created_time": "2010-10-03T21:22:20+0000",
+        "position": 1,
+        "updated_time": "2010-10-03T21:22:21+0000",
+        "comments": {
+            "data": [{
+                "id": "475051349858_3634035",
+                "from": {
+                    "name": "Charles Guillon",
+                    "id": "744995789"
+                },
+                "message": "J'aime pas ( http://www.facebook.com/pages/FBDislike/186845260403 )",
+                "can_remove": true,
+                "created_time": "2010-10-03T21:32:37+0000"
+            }, {
+                "id": "475051349858_3634216",
+                "from": {
+                    "name": "Pierre Yves",
+                    "id": "1485146633"
+                },
+                "message": "Et vive les galettes so!",
+                "can_remove": true,
+                "created_time": "2010-10-03T21:58:32+0000"
+            }],
+            "paging": {
+                "next": "https://graph.facebook.com/475051349858/comments?access_token=AAAD4Yvp6FDEBAHGFZBZBpi0xXTI1wze5QiX5jBvXwjvAMKHVEjHj0G6qYQhgIbziWFYwlz2HkEd2ZAOnDGgaEp0Rlnub2dBdj21VDvX4gZDZD&callback=FB.ApiServer._callbacks.f1a32dc90eae542&pretty=0&sdk=joey&limit=25&offset=25&__after_id=475051349858_3634216"
+            }
+        },
+        "likes": {
+            "data": [{
+                "id": "744325293",
+                "name": "Coline Zannettacci"
+            }],
+            "paging": {
+                "next": "https://graph.facebook.com/475051349858/likes?access_token=AAAD4Yvp6FDEBAHGFZBZBpi0xXTI1wze5QiX5jBvXwjvAMKHVEjHj0G6qYQhgIbziWFYwlz2HkEd2ZAOnDGgaEp0Rlnub2dBdj21VDvX4gZDZD&callback=FB.ApiServer._callbacks.f1a32dc90eae542&pretty=0&sdk=joey&limit=25&offset=25&__after_id=744325293"
+            }
+        }
+    }, {
+        "id": "154843909858",
+        "from": {
+            "name": "Antoine Banctel-Chevrel",
+            "id": "738514858"
+        },
+        "picture": "http://photos-b.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_s.jpg",
+        "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_n.jpg",
+        "height": 366,
+        "width": 604,
+        "images": [{
+            "height": 1241,
+            "width": 2048,
+            "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/s2048x2048/10331_154843909858_738514858_3491053_7561007_n.jpg"
+        }, {
+            "height": 366,
+            "width": 604,
+            "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_n.jpg"
+        }, {
+            "height": 366,
+            "width": 604,
+            "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_n.jpg"
+        }, {
+            "height": 290,
+            "width": 480,
+            "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/s480x480/10331_154843909858_738514858_3491053_7561007_n.jpg"
+        }, {
+            "height": 193,
+            "width": 320,
+            "source": "http://a2.sphotos.ak.fbcdn.net/hphotos-ak-snc6/s320x320/10331_154843909858_738514858_3491053_7561007_n.jpg"
+        }, {
+            "height": 109,
+            "width": 180,
+            "source": "http://photos-b.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_a.jpg"
+        }, {
+            "height": 78,
+            "width": 130,
+            "source": "http://photos-b.ak.fbcdn.net/hphotos-ak-snc6/10331_154843909858_738514858_3491053_7561007_s.jpg"
+        }, {
+            "height": 78,
+            "width": 130,
+            "source": "http://photos-b.ak.fbcdn.net/hphotos-ak-snc6/s75x225/10331_154843909858_738514858_3491053_7561007_s.jpg"
+        }],
+        "link": "http://www.facebook.com/photo.php?fbid=154843909858&set=a.154843904858.142231.738514858&type=1",
+        "icon": "https://s-static.ak.facebook.com/rsrc.php/v2/yz/r/StEh3RhPvjk.gif",
+        "created_time": "2009-09-16T13:35:20+0000",
+        "position": 2,
+        "updated_time": "2009-09-16T13:35:20+0000",
+        "comments": {
+            "data": [{
+                "id": "154843909858_1781396",
+                "from": {
+                    "name": "Benjamin Brizzi",
+                    "id": "650725547"
+                },
+                "message": "Hahaha, on m'avait dit que son site était affreux mais je viens juste de vérifier... et c'est bien pire que ce à quoi je m'attendais. Ca fait même un peu peur.",
+                "can_remove": true,
+                "created_time": "2009-09-16T13:52:36+0000"
+            }],
+            "paging": {
+                "next": "https://graph.facebook.com/154843909858/comments?access_token=AAAD4Yvp6FDEBAHGFZBZBpi0xXTI1wze5QiX5jBvXwjvAMKHVEjHj0G6qYQhgIbziWFYwlz2HkEd2ZAOnDGgaEp0Rlnub2dBdj21VDvX4gZDZD&callback=FB.ApiServer._callbacks.f1a32dc90eae542&pretty=0&sdk=joey&limit=25&offset=25&__after_id=154843909858_1781396"
+            }
+        }
+    }],
+    "paging": {
+        "next": "https://graph.facebook.com/154843904858/photos?access_token=AAAD4Yvp6FDEBAHGFZBZBpi0xXTI1wze5QiX5jBvXwjvAMKHVEjHj0G6qYQhgIbziWFYwlz2HkEd2ZAOnDGgaEp0Rlnub2dBdj21VDvX4gZDZD&callback=FB.ApiServer._callbacks.f1a32dc90eae542&pretty=0&sdk=joey&limit=25&offset=25&__after_id=154843909858"
+    }
+};

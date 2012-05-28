@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     height: 20px;
 }
+
+#album-list
+{
+    width: 220px;
+    text-align: right;
+    list-style-type: none;
+}
