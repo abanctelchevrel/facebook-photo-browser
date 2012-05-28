@@ -59,7 +59,6 @@
 
       FB.login(function(response) {
         FB.api('/me/albums', function(response){
-            window.albumsData = response.data;
             window.App = new AppView();
         });
       }, {scope: 'user_photos'});

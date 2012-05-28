@@ -40,15 +40,35 @@ jQuery(function($){
             updated_time: undefined,
             can_upload: undefined,
         },
-
+        url: '/album',
         initialize: function(obj){
             this.set(obj);
         }
     });
 
     window.Albums = Backbone.Collection.extend({
-        model: Album
+        model: Album,
+        url: '/me/albums',
+        sync: function(method, model, options){
+            switch (method) {
+                case "read":    resp = this.findAll(model, options); break;
+            }
+            log([method, model, options]);
+        },
+        findAll: function(model, options) {
+            return FB.api(this.url, function(response){
+                if (!response || response.error) {
+                    options.error('FB api error : ' + response.error);
+                } else {
+                    options.success(response.data);
+                }
+            });
+        }
     });
+    // window.Albums.prototype.sync = function(method, model, options){
+    //     log([method, model, options]);
+    // };
+
     window.albums = new Albums;
 
     window.AlbumView = Backbone.View.extend({
@@ -105,7 +125,7 @@ jQuery(function($){
             _.bindAll(this, 'render', 'addAll', 'addOne');
             albums.bind('add', this.addOne);
             albums.bind('reset', this.addAll);
-            albums.reset(window.albumsData);
+            albums.fetch()
             this.render();
         },
         render: function() {
