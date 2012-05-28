@@ -75,7 +75,7 @@ jQuery(function($){
             type: undefined,
             created_time: undefined,
             updated_time: undefined,
-            can_upload: undefined,
+            can_upload: undefined
         },
         url: '/album',
         initialize: function(obj){
@@ -155,7 +155,7 @@ jQuery(function($){
         render: function() {
             $(this.el).html(this.template(this.model.toJSON()));
             return this;
-        },
+        }
       });
 
     window.AppView = Backbone.View.extend({
