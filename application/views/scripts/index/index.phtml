@@ -1,11 +1,12 @@
 <h1>Facebook Photo Browser</h1>
 
 <script type="text/template" id="album-template">
+    <img src="" class="album-thumbnail">
     <p class="album-name"><%= name %></p>
 </script>
 
 <script type="text/template" id="photo-template">
-    <img src="<%= source %>">
+    <img src="<%= picture %>">
     <p class="photo-id"><%= id %></p>
 </script>
 <div id="photobrowser-app" class="loading">

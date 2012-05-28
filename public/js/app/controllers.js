@@ -18,8 +18,27 @@ jQuery(function($){
             likes: undefined 
         },
 
+        url: function(){
+            return '/' + this.get('id');
+        },
+        sync: function(method, model, options){
+            switch (method) {
+                case "read":    resp = this.find(model, options); break;
+            }
+        },
         initialize: function(obj){
             this.set(obj);
+        },
+        find: function(model, options) {
+            return FB.api(this.url(), function(response){
+                log(response)
+                log(options)
+                if (!response || response.error) {
+                    options.error('FB api error : ' + response.error);
+                } else {
+                    options.success(response);
+                }
+            });
         }
     });
     window.Photos = Backbone.Collection.extend({
@@ -64,6 +83,8 @@ jQuery(function($){
         initialize: function(obj){
             this.set(obj);
             this.photos = new Photos([], {albumId: this.get("id")});
+            this.coverPhoto = new Photo({id: this.get("cover_photo")});
+            this.coverPhoto.fetch();
         }
     });
 
@@ -96,8 +117,9 @@ jQuery(function($){
             "click" : "open"
         },
         initialize: function() {
-            _.bindAll(this, 'render', 'open', 'addAll', 'addOne');
+            _.bindAll(this, 'render', 'open', 'addAll', 'addOne', 'renderThumbnail');
             this.model.photos.bind('reset', this.addAll);
+            this.model.coverPhoto.bind('change', this.renderThumbnail);
         },
 
         open: function(data){
@@ -106,6 +128,13 @@ jQuery(function($){
 
         render: function() {
             $(this.el).html(this.template(this.model.toJSON()));
+            return this;
+        },
+
+        renderThumbnail: function() {
+            log('renderThumbnail')
+            log(this.model.coverPhoto.get('picture'))
+            $(this.el).find('.album-thumbnail').attr("src", this.model.coverPhoto.get('picture'));
             return this;
         },
 
