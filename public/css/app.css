@@ -5,23 +5,26 @@ body {
 
 #photobrowser-app.loading
 {
-    background-image: url('/img/spinner.gif');
+    background-image: url('/img/spinner-app.gif');
     background-repeat: no-repeat;
     height: 20px;
 }
 
 #album-list
 {
-    text-align: right;
     list-style-type: none;
+    display: block;
+    white-space: nowrap;
+    overflow: auto; 
 }
+
 
 #album-list .thumbnail, 
 #photo-list .thumbnail 
 {
-    background: url('http://placehold.it/130x130') 50% 50% no-repeat;
+    background: url('/img/spinner-thumb.gif') 50% 50% no-repeat;
     border: 1px solid #DEDEDE;
-    float: left;
+    display: inline-block;
     margin: 3px;
     text-align: center;
     height: 130px;
@@ -29,7 +32,8 @@ body {
 }
 .thumbnail-overlay
 {   
-    display: none;
+    visibility: hidden;
+    display: inline-block;
     height: 130px;
     width: 130px;
     background: rgba(0,0,0,.6);
@@ -38,11 +42,19 @@ body {
 {
     padding-top: 30px;
     color: #DDD;
+    font-weight: bold;
+
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 .thumbnail:hover .thumbnail-overlay
 {
-    display: block;
+    visibility: visible;
 }
+
 #album-list .thumbnail:hover, 
 #photo-list .thumbnail:hover 
 {
