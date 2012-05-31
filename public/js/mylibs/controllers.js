@@ -149,6 +149,7 @@ jQuery(function($){
             $(".fancybox-thumb").fancybox({
                 prevEffect  : 'none',
                 nextEffect  : 'none',
+                fitToView   : true,
                 helpers : {
                     title   : {
                         type: 'outside'
@@ -187,7 +188,7 @@ jQuery(function($){
             if( undefined !== this.model.get('picture') ) {
                 $(this.el).css("background-image", "none");
                 $(this.el).find("img").removeClass("hidden");
-                $(this.el).attr("href", this.model.get('source'));
+                $(this.el).attr("href", this.model.get('images')[0].source);
                 $(this.el).attr("rel", "gallery1");//TODO : replace it by album name
             }
 
