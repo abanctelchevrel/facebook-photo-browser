@@ -146,6 +146,25 @@ jQuery(function($){
         addAll: function(){
             $("#photo-list").empty();
             this.model.photos.each(this.addOne);
+            $(".fancybox-thumb").fancybox({
+                prevEffect  : 'none',
+                nextEffect  : 'none',
+                helpers : {
+                    title   : {
+                        type: 'outside'
+                    },
+                    overlay : {
+                        opacity : 0.8,
+                        css : {
+                            'background-color' : '#000'
+                        }
+                    },
+                    thumbs  : {
+                        width   : 50,
+                        height  : 50
+                    }
+                }
+            });
         },
         
         addOne: function(photo){
@@ -157,8 +176,8 @@ jQuery(function($){
     window.PhotoView = Backbone.View.extend({
         template: _.template($("#photo-template").html()),
 
-        tagName:  "li",
-        className:  "thumbnail",
+        tagName:  "a",
+        className:  "thumbnail fancybox-thumb",
         initialize: function() {
             _.bindAll(this, 'render');
         },
@@ -166,7 +185,10 @@ jQuery(function($){
         render: function() {
             $(this.el).html(this.template(this.model.toJSON()));
             if( undefined !== this.model.get('picture') ) {
-                $(this.el).css("background-image", "url(" + this.model.get('picture') + ")");
+                $(this.el).css("background-image", "none");
+                $(this.el).find("img").removeClass("hidden");
+                $(this.el).attr("href", this.model.get('source'));
+                $(this.el).attr("rel", "gallery1");//TODO : replace it by album name
             }
 
             return this;
