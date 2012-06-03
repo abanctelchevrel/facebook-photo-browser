@@ -42,10 +42,10 @@ jQuery(function($){
     window.Photos = Backbone.Collection.extend({
         model: Photo,
         url: function(){
-            return '/' + this.albumId + '/photos';
+            return '/' + this.albumData.id + '/photos?limit=' + this.albumData.count;
         },
         initialize: function(model, options){
-            this.albumId = options.albumId;
+            this.albumData = options.album;
         },
         sync: function(method, model, options){
             switch (method) {
@@ -80,7 +80,7 @@ jQuery(function($){
         url: '/album',
         initialize: function(obj){
             this.set(obj);
-            this.photos = new Photos([], {albumId: this.get("id")});
+            this.photos = new Photos([], {album: this.attributes});
             this.coverPhoto = new Photo({id: this.get("cover_photo")});
             this.coverPhoto.fetch();
         }
