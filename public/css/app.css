@@ -54,6 +54,13 @@ body {
 {
     visibility: visible;
 }
+.thumbnail .thumbnail-overlay .badge
+{
+    visibility: visible;
+    position: relative;
+    top: -8px;
+    right: -61px;
+}
 
 #album-list .thumbnail:hover, 
 #photo-list .thumbnail:hover 
