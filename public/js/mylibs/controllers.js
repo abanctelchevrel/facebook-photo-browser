@@ -71,7 +71,7 @@ jQuery(function($){
             link: undefined,
             cover_photo: undefined,
             privacy: undefined,
-            count: undefined,
+            count: 0,
             type: undefined,
             created_time: undefined,
             updated_time: undefined,
