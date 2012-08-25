@@ -5,7 +5,7 @@ body {
 
 #photobrowser-app.loading
 {
-    background-image: url('/img/spinner-app.gif');
+    background-image: url('/facebook-photo-browser/img/spinner-app.gif');
     background-repeat: no-repeat;
     height: 20px;
 }
@@ -22,7 +22,7 @@ body {
 #album-list .thumbnail, 
 #photo-list .thumbnail 
 {
-    background: url('/img/spinner-thumb.gif') 50% 50% no-repeat;
+    background: url('/facebook-photo-browser/img/spinner-thumb.gif') 50% 50% no-repeat;
     border: 1px solid #DEDEDE;
     display: inline-block;
     margin: 3px;
