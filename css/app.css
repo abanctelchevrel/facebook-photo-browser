@@ -1,0 +1,69 @@
+body {
+    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+
+#photobrowser-app.loading
+{
+    background-image: url('/img/spinner-app.gif');
+    background-repeat: no-repeat;
+    height: 20px;
+}
+
+#album-list
+{
+    list-style-type: none;
+    display: block;
+    white-space: nowrap;
+    overflow: auto; 
+}
+
+
+#album-list .thumbnail, 
+#photo-list .thumbnail 
+{
+    background: url('/img/spinner-thumb.gif') 50% 50% no-repeat;
+    border: 1px solid #DEDEDE;
+    display: inline-block;
+    margin: 3px;
+    text-align: center;
+    height: 130px;
+    width: 130px;
+}
+.thumbnail-overlay
+{   
+    visibility: hidden;
+    display: inline-block;
+    height: 130px;
+    width: 130px;
+    background: rgba(0,0,0,.6);
+}
+.thumbnail-overlay p
+{
+    padding-top: 30px;
+    color: #DDD;
+    font-weight: bold;
+
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.thumbnail:hover .thumbnail-overlay
+{
+    visibility: visible;
+}
+.thumbnail .thumbnail-overlay .badge
+{
+    visibility: visible;
+    position: relative;
+    top: -8px;
+    right: -61px;
+}
+
+#album-list .thumbnail:hover, 
+#photo-list .thumbnail:hover 
+{
+    border: 1px solid #696969;
+}
